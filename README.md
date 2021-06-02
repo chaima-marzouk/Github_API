@@ -1,1 +1,2 @@
 # Github_API
+Dans ce projetl'utilisateur a le droit de plusieurs  operations {"répertorier les dépôts Github les plus suivis", "voir les résultats sous forme de liste(Un référentiel par ligne)","pouvoir continuer à faire défiler et de nouveaux résultats devraient apparaître (pagination)"," être en mesure de voir pour chaque repo", "voir le resuktat filtré par 'nom du référentiel' , ' Description du référentiel' , 'Nombre d'étoiles pour le repo' , 'Nombre d'émissions pour le repo' , 'Nom d'utilisateur et avatar du propriétaire' . "}.
