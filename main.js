@@ -3,9 +3,9 @@ let theInput = document.querySelector(".get-repos input");
 let getButton = document.querySelector(".get-button");
 let reposData = document.querySelector(".show-data");
 
-getButton.onclick = function () {
-  getRepos();
-};
+// getButton.onclick = function () {
+//   getRepos();
+// };
 
 // Get Repos Function
 function getRepos() {
@@ -19,6 +19,7 @@ function getRepos() {
     fetch(`https://api.github.com/users/${theInput.value}/repos`)
 
     .then((response) => response.json())
+    // console.log('response')
 
     .then((repositories) => {
 
