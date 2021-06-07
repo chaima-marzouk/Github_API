@@ -1,21 +1,12 @@
 // Main Variables
 let theInput = document.querySelector(".get-repos input");
-let getButton = document.querySelector(".get-button");
 let reposData = document.querySelector(".show-data");
 
-// getButton.onclick = function () {
-//   getRepos();
-// };
 
 // Get Repos Function
 function getRepos() {
 
-  if (theInput.value == "") { // If Value Is Empty
-
-    reposData.innerHTML = "<span>Please Write Github Username.</span>";
-
-  } else {
-
+    // promise
     fetch(`https://api.github.com/users/${theInput.value}/repos`)
 
     .then((response) => response.json())
@@ -47,10 +38,10 @@ function getRepos() {
         // Append The Repo Url Text To Anchor Tag
         theUrl.appendChild(theUrlText);
 
-        // Add Thje Hypertext Reference "href"
+        // Add "href"
         theUrl.href = `https://github.com/${theInput.value}/${repo.name}`;
 
-        // Set Attribute Blank
+        // ouvrir l'href dans une nouvelle page
         theUrl.setAttribute('target', '_blank');
 
         // Append Url Anchor To Main Div
@@ -68,16 +59,58 @@ function getRepos() {
         // Append Stars Count Span To Main Div
         mainDiv.appendChild(starsSpan);
 
+
+        // Create Stars Count Span
+        let descriptionSpan = document.createElement("h5");
+
+        // Create The Stars Count Text
+        let descriptionText = document.createTextNode(`${repo.description}`);
+
+        // Add Stars Count Text To Stars Span
+        descriptionSpan.appendChild(descriptionText);
+
+        //add classe to the description span 
+        descriptionSpan.className = 'description';
+
+        // Append Stars Count Span To Main Div
+        mainDiv.appendChild(descriptionSpan );
+
+        if(descriptionSpan.value = NULL) {
+          
+          document.getElementsByTagName("h5").innerHTML = "No description found";
+
+        }
+       
+
+        
+        //creat avatar tag
+        let img = document.createElement("img");
+
+         // Create The Stars Count Text
+         img.href =`${repo.avatar}`;
+ 
+         // Append Stars Count Span To Main Div
+         mainDiv.appendChild(img);
+
+
+
+
+
+         
+
         // Add Class On Main Div
         mainDiv.className = 'repo-box';
 
         // Append The Main Div To Container
         reposData.appendChild(mainDiv);
 
+      
+
+       
+        
+
       });
 
     });
-
-  }
 
 }

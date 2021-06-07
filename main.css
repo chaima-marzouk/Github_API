@@ -75,3 +75,10 @@
   .repos-container .show-data .repo-box span {
     background-color: #009688;
   }
+
+  .avatar{
+   
+      width: 83px;
+      margin: 7px;
+  
+  }
