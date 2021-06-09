@@ -1,19 +1,29 @@
 * {
     box-sizing: border-box;
+    
   }
   body {
     font-family: Tahoma, Arial;
+    background-color: #232323;
+    
   }
-  header{
+  header nav{
       background-color: black;
+      /* position: fixed; */
+      display: flex;
   }
+
+  header nav h1{
+    margin: 8px 20px;
+  }
+
   img {
-    width: 111px;
+    width: 73px;
     margin: 10px;
 }
   .repos-container {
     width: 800px;
-    background-color: #F6F6F6;
+    /* background-color: #F6F6F6; */
     margin: auto;
     margin-top: 31px;
    
@@ -40,7 +50,7 @@
     margin-left: 10px;
     height: 54px;
     background-color: #232323;
-    color: #FFF;
+    color: rgb(54, 53, 53);
     line-height: 54px;
     text-align: center;
     font-weight: bold;
@@ -76,9 +86,15 @@
     background-color: #009688;
   }
 
+  .repos-container .show-data .repo-box .issues{
+
+    background-color: #1f4ece;
+    margin-right: 50px;
+  }
+
   .avatar{
    
-      width: 83px;
+      width: 73px;
       margin: 7px;
   
   }

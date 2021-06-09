@@ -3,12 +3,25 @@ let theInput = document.querySelector(".get-repos input");
 let reposData = document.querySelector(".show-data");
 
 
+
 // Get Repos Function
 function getRepos() {
 
+
+  fetch(`https://api.github.com/users/${theInput.value}`)
+                                                                                                       
+    .then((rep) => rep.json())
+    
+    .then((data) => {
+
+      document.querySelector(".img").innerHTML = `
+      <img src="${data.avatar_url}" alt="img-github" width=250>
+    <h1>${data.login}</h1>`;
+    })
+
     // promise
     fetch(`https://api.github.com/users/${theInput.value}/repos`)
-
+                                                                                                       
     .then((response) => response.json())
     // console.log('response')
 
@@ -75,22 +88,25 @@ function getRepos() {
         // Append Stars Count Span To Main Div
         mainDiv.appendChild(descriptionSpan );
 
-        if(descriptionSpan.value = NULL) {
-          
-          document.getElementsByTagName("h5").innerHTML = "No description found";
 
-        }
-       
 
+
+        // Create Stars Count Span
+        let issuesSpan = document.createElement("span");
+
+        // Create The Stars Count Text
+        let issuesText = document.createTextNode(`issues ${repo.open_issues_count}`);
         
-        //creat avatar tag
-        let img = document.createElement("img");
+        // Add Stars Count Text To Stars Span
+        issuesSpan.appendChild(issuesText);
 
-         // Create The Stars Count Text
-         img.href =`${repo.avatar}`;
- 
-         // Append Stars Count Span To Main Div
-         mainDiv.appendChild(img);
+         //add classe to the issues span 
+        issuesSpan.className = 'issues';
+        
+        // Append Stars Count Span To Main Div
+        mainDiv.appendChild(issuesSpan);
+  
+       
 
 
 
@@ -112,5 +128,34 @@ function getRepos() {
       });
 
     });
+    
 
 }
+
+
+// function getAvatar(){
+
+//   // let avatar = document.querySelector(".show-data #avatar");
+
+// // promise
+// fetch(`https://api.github.com/users/${theInput.value}`)
+
+// .then((response) => response.json())
+
+//  let namee = response.data.name;
+
+//   //creat avatar tag
+//  let img = document.createElement("img");
+
+//  // Create The Stars Count Text
+//  img.setAttribute = ('src' ,namee.avatar_url);
+
+//  // Create The Main Div Element
+//  let mainDiv = document.createElement("div");
+
+//  // Append img tag To Main Div
+//  mainDiv.appendChild(img);
+
+
+
+// }
